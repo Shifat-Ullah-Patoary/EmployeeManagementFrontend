@@ -1,0 +1,42 @@
+<div class="form-container">
+  <h2>Add New Employee</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="employeeData.name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="employeeData.email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" [(ngModel)]="employeeData.dob" required>
+    </div>
+
+    <div class="form-group">
+      <label for="joiningDate">Joining Date:</label>
+      <input type="date" id="joiningDate" name="joiningDate" [(ngModel)]="employeeData.joiningDate" required>
+    </div>
+
+    <div class="form-group">
+      <label for="department">Department:</label>
+      <input type="text" id="department" name="department" [(ngModel)]="employeeData.department" required>
+    </div>
+
+    <div class="form-group">
+      <label for="position">Position:</label>
+      <input type="text" id="position" name="position" [(ngModel)]="employeeData.position" required>
+    </div>
+
+    <button type="submit">Add Employee</button>
+  </form>
+
+  <!-- Message display -->
+  <div *ngIf="message" class="message" [ngClass]="{'success': isSuccess, 'error': !isSuccess}">
+    {{ message }}
+  </div>
+</div>
