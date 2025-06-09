@@ -17,7 +17,7 @@ export interface Employee {
 })
 export class EmployeeserviceService {
 
-  private apiUrl = 'http://localhost:8080/api/addEmployee';
+  private apiUrl = 'http://localhost:8080/api/employees';
 
   constructor(private http: HttpClient) { }
 
@@ -29,4 +29,14 @@ export class EmployeeserviceService {
     return this.http.get<Employee[]>(this.apiUrl);
   }
 
+  updateEmployee(id:number, employee:Employee):Observable<Employee>
+  {
+    
+    return this.http.put<Employee>(`${this.apiUrl}/${id}`, employee);
+  }
+
+  deleteEmployee(id:number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  }
+      
 }

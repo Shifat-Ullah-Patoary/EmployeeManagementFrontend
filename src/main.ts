@@ -1,17 +1,7 @@
+// src/main.ts
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { appConfig } from './app/app.config'; // Ensure this import is correct
 import { AppComponent } from './app/app.component';
-import { provideRouter } from '@angular/router';
-import { routes } from './app/app.routes';
-import { provideHttpClient } from '@angular/common/http';
 
-bootstrapApplication(AppComponent,
-  {
-    providers: [
-      provideRouter(routes),
-      provideHttpClient()
-    ],
-  }
-
-)
+bootstrapApplication(AppComponent, appConfig) // <-- Use appConfig directly
   .catch((err) => console.error(err));
